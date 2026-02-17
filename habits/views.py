@@ -7,14 +7,24 @@ from .models import FitnessHabit, DailyHabitLog
 
 @login_required
 def daily_habits(request):
-    """Handle daily fitness habit tracking."""
     today = now().date()
+
+    if not FitnessHabit.objects.exists():
+        default_habits = [
+            "Exercise / Walk",
+            "Drink 2L Water",
+            "Stretching",
+            "Fruits",
+            "Proper Sleep"
+        ]
+        for h in default_habits:
+            FitnessHabit.objects.get_or_create(name=h)
 
     habits = FitnessHabit.objects.filter(is_active=True)
 
     log, created = DailyHabitLog.objects.get_or_create(
         user=request.user,
-        date=today,
+        date=today
     )
 
     if request.method == "POST":
@@ -29,9 +39,7 @@ def daily_habits(request):
         total = habits.count()
         completed = log.completed_habits.count()
 
-        log.completion_percent = (
-            int((completed / total) * 100) if total > 0 else 0
-        )
+        log.completion_percent = int((completed / total) * 100) if total > 0 else 0
         log.save()
 
         return redirect("daily_habits")
