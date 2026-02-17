@@ -4,8 +4,12 @@ FITHUB is a full-stack Django web application that helps users monitor and impro
 
 The platform is designed with clean architecture, user-specific data handling, and production-ready practices.
 
+🌍 Live Demo
+
+👉 https://fithub-98q3.onrender.com/
+
 🚀 Features
-Authentication
+🔐 Authentication
 
 Secure user registration and login
 
@@ -13,7 +17,9 @@ Session-based authentication
 
 User-specific data isolation
 
-BMI Tracking
+📸 Login & Signup Interface
+
+🧮 BMI Tracking
 
 BMI calculation using height and weight
 
@@ -23,15 +29,31 @@ Persistent BMI history
 
 Dashboard with latest and historical records
 
-Exercise Recommendations
+📸 BMI Calculator
+
+📊 Dashboard
+
+Displays latest BMI result
+
+Shows total records
+
+Clean structured table history
+
+User-personalized experience
+
+📸 Dashboard View
+
+🏃 Exercise Recommendations
 
 Dynamic workout suggestions based on BMI category
 
-Structured exercise cards with guidance
+Structured exercise cards with sets & reps
 
 Category-based workout sections
 
-Daily Fitness Tracker
+📸 Exercise Module
+
+📅 Daily Fitness Tracker
 
 Daily habit checklist system
 
@@ -41,19 +63,20 @@ One log per user per day (data integrity enforced)
 
 Historical tracking of completion rates
 
-🛠 Tech Stack
+📸 Daily Tracker
 
-Backend:
+🛠 Tech Stack
+Backend
 
 Python 3.12
 
 Django 6
 
-Database:
+Database
 
 SQLite (Development)
 
-Frontend:
+Frontend
 
 HTML5
 
@@ -61,7 +84,7 @@ CSS3 (Custom UI Styling)
 
 Django Template Engine
 
-Architecture:
+Architecture
 
 Multi-app modular Django structure
 
@@ -75,53 +98,46 @@ fitness/         # BMI & Exercise modules
 habits/          # Daily tracking system
 static/          # CSS and static assets
 templates/       # HTML templates
+screenshots/     # Project UI screenshots
 fithub_project/  # Core project settings
 
 ⚙️ Local Setup
-
-Clone the repository:
-
-git clone <your-repo-url>
+1️⃣ Clone the repository
+git clone https://github.com/vignesh12042003/fithub_project.git
 cd fithub_project
 
-
-Create virtual environment:
-
+2️⃣ Create virtual environment
 python -m venv venv
 
-
-Activate environment:
+3️⃣ Activate environment
 
 Windows:
 
 venv\Scripts\activate
 
-
-Install dependencies:
-
+4️⃣ Install dependencies
 pip install -r requirements.txt
 
-
-Run migrations:
-
+5️⃣ Run migrations
 python manage.py migrate
 
-
-Create admin user:
-
+6️⃣ Create admin user
 python manage.py createsuperuser
 
-
-Run server:
-
+7️⃣ Run server
 python manage.py runserver
 
 🔐 Environment Variables
 
 Create a .env file in the project root:
 
-SECRET_KEY=your_secret_key_here
+SECRET_KEY=your_generated_secret_key
 DEBUG=True
+
+
+For production:
+
+DEBUG=False
 
 🧠 Data Modeling
 
@@ -141,9 +157,11 @@ Analytics dashboard with charts
 
 Calorie tracking API integration
 
-Deployment on cloud platform (Render / Railway / AWS)
+Advanced progress visualization
 
-📊 Project Level
+Role-based admin insights
+
+📊 Project Classification
 
 Category: Full-Stack Web Application
 Level: Intermediate Django Application
