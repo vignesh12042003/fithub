@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="habits-wrapper">
+
+    <!-- LEFT: CHECKLIST -->
+    <div class="habits-card">
+        <h2>Daily Fitness Log</h2>
+        <p class="date">{{ today|date:"d-m-Y" }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="habit-list">
+                {% for habit in habits %}
+                <label class="habit-item">
+                    <input type="checkbox" name="habits" value="{{ habit.id }}"
+                        {% if habit in completed %}checked{% endif %}>
+                    <span>{{ habit.name }}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="btn-primary">Save Today</button>
+        </form>
+    </div>
+
+    <!-- RIGHT: PROGRESS -->
+    <div class="progress-card">
+        <h3>Progress</h3>
+        <div class="progress-circle"
+     style="
+       background:
+         radial-gradient(circle at center, #0b1430 55%, transparent 56%),
+         conic-gradient(#00e676 {{ progress }}%, #1f2a4a 0);
+     ">
+    <span>{{ progress }}%</span>
+</div>
+
+        <p class="progress-text">
+            {% if progress == 100 %}
+                🎉 Great job! All habits completed
+            {% else %}
+                Keep going! You’re doing great 💪
+            {% endif %}
+        </p>
+    </div>
+
+</div>
+
+{% endblock %}

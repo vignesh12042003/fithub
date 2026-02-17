@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <h2 class="section-title">Exercise Recommendations</h2>
+
+    {% if category %}
+        <p class="subtitle">
+            Based on your latest BMI category:
+            <strong>{{ category }}</strong>
+        </p>
+
+        <!-- ================= UNDERWEIGHT ================= -->
+        {% if category == "Underweight" %}
+        <h3 class="exercise-section-title">Muscle & Strength Building</h3>
+
+        <div class="exercise-grid">
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/pushups.gif' %}">
+                <h4>Push-ups</h4>
+                <p class="exercise-desc">Build chest, shoulders and arms.</p>
+                <p class="exercise-meta">3 × 10 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/squats.jpg' %}">
+                <h4>Squats</h4>
+                <p class="exercise-desc">Strengthen legs and lower body.</p>
+                <p class="exercise-meta">3 × 12 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/plank.gif' %}">
+                <h4>Plank</h4>
+                <p class="exercise-desc">Improve core stability.</p>
+                <p class="exercise-meta">3 × 30 sec</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/lunges.gif' %}">
+                <h4>Lunges</h4>
+                <p class="exercise-desc">Enhance leg balance.</p>
+                <p class="exercise-meta">3 × 10 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/glutebridge.gif' %}">
+                <h4>Glute Bridge</h4>
+                <p class="exercise-desc">Strengthen hips & glutes.</p>
+                <p class="exercise-meta">3 × 15 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/wallsit.gif' %}">
+                <h4>Wall Sit</h4>
+                <p class="exercise-desc">Improve leg endurance.</p>
+                <p class="exercise-meta">3 × 30 sec</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/shouldertaps.gif' %}">
+                <h4>Shoulder Taps</h4>
+                <p class="exercise-desc">Increase shoulder control.</p>
+                <p class="exercise-meta">3 × 12 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/mountainclimbers.gif' %}">
+                <h4>Mountain Climbers</h4>
+                <p class="exercise-desc">Full body conditioning.</p>
+                <p class="exercise-meta">3 × 20 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/underweight/legraises.gif' %}">
+                <h4>Leg Raises</h4>
+                <p class="exercise-desc">Strengthen lower abs.</p>
+                <p class="exercise-meta">3 × 12 reps</p>
+            </div>
+
+        </div>
+        {% endif %}
+
+        <!-- ================= NORMAL ================= -->
+        {% if category == "Normal" %}
+        <h3 class="exercise-section-title">Balanced Fitness</h3>
+
+        <div class="exercise-grid">
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/jogging.gif' %}">
+                <h4>Jogging</h4>
+                <p class="exercise-desc">Improve cardiovascular health.</p>
+                <p class="exercise-meta">20 minutes</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/pushups.gif' %}">
+                <h4>Push-ups</h4>
+                <p class="exercise-desc">Upper body endurance.</p>
+                <p class="exercise-meta">3 × 15 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/squats.jpg' %}">
+                <h4>Squats</h4>
+                <p class="exercise-desc">Lower body strength.</p>
+                <p class="exercise-meta">3 × 15 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/plank.gif' %}">
+                <h4>Plank</h4>
+                <p class="exercise-desc">Core endurance.</p>
+                <p class="exercise-meta">3 × 45 sec</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/jumprope.gif' %}">
+                <h4>Jump Rope</h4>
+                <p class="exercise-desc">Burn calories fast.</p>
+                <p class="exercise-meta">5 minutes</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/crunches.gif' %}">
+                <h4>Crunches</h4>
+                <p class="exercise-desc">Core strengthening.</p>
+                <p class="exercise-meta">3 × 20 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/highknees.gif' %}">
+                <h4>High Knees</h4>
+                <p class="exercise-desc">Cardio activation.</p>
+                <p class="exercise-meta">3 × 30 sec</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/stretching.gif' %}">
+                <h4>Stretching</h4>
+                <p class="exercise-desc">Improve flexibility.</p>
+                <p class="exercise-meta">10 minutes</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/normal/bodyweightsquat.gif' %}">
+                <h4>Bodyweight Squat</h4>
+                <p class="exercise-desc">Maintain leg strength.</p>
+                <p class="exercise-meta">3 × 15 reps</p>
+            </div>
+
+        </div>
+        {% endif %}
+
+        <!-- ================= OVERWEIGHT ================= -->
+        {% if category == "Overweight" %}
+        <h3 class="exercise-section-title">Low Impact Fat Burn</h3>
+
+        <div class="exercise-grid">
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/walking.gif' %}">
+                <h4>Walking</h4>
+                <p class="exercise-desc">Safe calorie burn.</p>
+                <p class="exercise-meta">25 minutes</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/cycling.gif' %}">
+                <h4>Cycling</h4>
+                <p class="exercise-desc">Low impact cardio.</p>
+                <p class="exercise-meta">20 minutes</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/steptouch.gif' %}">
+                <h4>Step Touch</h4>
+                <p class="exercise-desc">Beginner friendly movement.</p>
+                <p class="exercise-meta">3 × 1 min</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/wallpushups.gif' %}">
+                <h4>Wall Push-ups</h4>
+                <p class="exercise-desc">Upper body strength.</p>
+                <p class="exercise-meta">2 × 10 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/armcircles.gif' %}">
+                <h4>Arm Circles</h4>
+                <p class="exercise-desc">Improve shoulder mobility.</p>
+                <p class="exercise-meta">3 × 30 sec</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/seatedlegraise.gif' %}">
+                <h4>Seated Leg Raises</h4>
+                <p class="exercise-desc">Strengthen legs safely.</p>
+                <p class="exercise-meta">3 × 12 reps</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/marching.gif' %}">
+                <h4>Marching</h4>
+                <p class="exercise-desc">Improve blood flow.</p>
+                <p class="exercise-meta">3 × 1 min</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/lowimpactjack.gif' %}">
+                <h4>Low Impact Jacks</h4>
+                <p class="exercise-desc">Gentle cardio.</p>
+                <p class="exercise-meta">3 × 30 sec</p>
+            </div>
+
+            <div class="exercise-card">
+                <img src="{% static 'fithub/images/exercises/overweight/stretching.jpg' %}">
+                <h4>Stretching</h4>
+                <p class="exercise-desc">Reduce muscle stiffness.</p>
+                <p class="exercise-meta">10 minutes</p>
+            </div>
+
+        </div>
+        {% endif %}
+
+    {% else %}
+        <div class="card">
+            <p>Please calculate your BMI to view exercise recommendations.</p>
+            <a href="{% url 'bmi' %}" class="btn-primary">Calculate BMI</a>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

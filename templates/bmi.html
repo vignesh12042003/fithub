@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+    <!-- BMI CARD -->
+    <div class="card bmi-card">
+
+        <h2 class="bmi-title">Calculate Your BMI</h2>
+        <p class="bmi-subtitle">
+            Enter your height and weight to calculate your Body Mass Index
+        </p>
+
+        <!-- BMI FORM -->
+        <form method="post" class="bmi-form">
+            {% csrf_token %}
+
+            <div class="bmi-inputs">
+                <input type="number" name="height" placeholder="Height (cm)" required>
+                <input type="number" name="weight" placeholder="Weight (kg)" required>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                Calculate BMI
+            </button>
+        </form>
+
+        <!-- RESULT -->
+        {% if bmi %}
+        <div class="bmi-result-card">
+
+            <h3>Your Result</h3>
+
+            <div class="bmi-result-grid">
+                <div>
+                    <span class="label">BMI Value</span>
+                    <p class="value">{{ bmi }}</p>
+                </div>
+
+                <div>
+                    <span class="label">Category</span>
+                    <p class="value">{{ category }}</p>
+                </div>
+            </div>
+
+            <div class="calorie-box">
+                <h4>Daily Calorie Recommendation</h4>
+                <p class="calories">{{ calories }} kcal / day</p>
+                <small>
+                    Estimated calories required to maintain your current weight
+                </small>
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

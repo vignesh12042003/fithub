@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-slider">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Track Your Fitness. <span>Simply.</span></h1>
+            <p class="hero-subtitle">Track your BMI · Monitor your progress</p>
+            <p class="hero-tagline">Simple. Private. Secure.</p>
+
+            <div class="hero-actions">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}" class="btn-primary">Go to Dashboard</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-primary">Login</a>
+                    <a href="{% url 'signup' %}" class="btn-outline">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <img src="{% static 'fithub/images/bmi.jpg' %}">
+        <h3>BMI Tracker</h3>
+        <p>Calculate and store BMI securely.</p>
+    </div>
+
+    <div class="feature-card">
+        <img src="{% static 'fithub/images/dashboard.jpg' %}">
+        <h3>Dashboard</h3>
+        <p>Track your progress visually.</p>
+    </div>
+
+    <div class="feature-card">
+        <img src="{% static 'fithub/images/exercise.jpg' %}">
+        <h3>Private & Secure</h3>
+        <p>Your data stays yours.</p>
+    </div>
+</section>
+
+{% endblock %}
