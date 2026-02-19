@@ -55,7 +55,7 @@ body {
 .hero-slider {
     width: 100%;
     min-height: calc(100vh - 70px);
-    background: url("../images/dashboard.jpg") center/cover no-repeat;
+    background: url("../images/fithub.png") center/cover no-repeat;
     position: relative;
 }
 
