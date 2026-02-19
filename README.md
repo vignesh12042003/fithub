@@ -1,168 +1,230 @@
-FITHUB – Personal Fitness Tracking Platform
+# FitHub – Fitness Tracking Platform
 
-FITHUB is a full-stack Django web application that helps users monitor and improve their fitness through BMI tracking, personalized exercise recommendations, and daily habit logging.
+A full-stack Django web application that empowers users to monitor and improve their fitness through BMI tracking, personalized exercise recommendations, and daily habit logging.
 
-The platform is designed with clean architecture, user-specific data handling, and production-ready practices.
+---
 
-🌍 Live Demo
+## 🌍 Live Demo
 
-👉 https://fithub-98q3.onrender.com/
+👉 **[https://fithub-98q3.onrender.com/](https://fithub-98q3.onrender.com/)**
 
-🚀 Features
-🔐 Authentication
+---
 
-Secure user registration and login
+## ✨ Features
 
-Session-based authentication
+- 🔐 User authentication (login/signup)
+- 📊 BMI calculator with history and categorization
+- 🏃 Personalized exercise recommendations based on BMI
+- 📅 Daily fitness habit tracker with progress tracking
+- 🎨 Responsive dark theme UI
 
-User-specific data isolation
+---
 
-📸 Login & Signup Interface
+## 🛠 Tech Stack
 
-🧮 BMI Tracking
+- **Python 3.12** & **Django 6.0.2**
+- **SQLite** (development) / **PostgreSQL** (production)
+- **HTML5, CSS3**
+- **Gunicorn, WhiteNoise**
 
-BMI calculation using height and weight
+---
 
-Automatic category classification (Underweight, Normal, Overweight)
+## 📂 Project Structure
 
-Persistent BMI history
+```
+fithub_project/
+├── accounts/                 # User authentication
+├── fitness/                  # BMI & Exercise modules
+├── habits/                   # Daily tracking system
+├── templates/                # HTML templates
+├── static/                   # CSS & images
+├── fithub_project/           # Project settings
+├── manage.py
+├── requirements.txt
+├── .env                      # ⚠️ MANDATORY
+└── Procfile
+```
 
-Dashboard with latest and historical records
+---
 
-📸 BMI Calculator
+## 🚀 Quick Start
 
-📊 Dashboard
+### Prerequisites
+- Python 3.8+
+- pip & Git
 
-Displays latest BMI result
-
-Shows total records
-
-Clean structured table history
-
-User-personalized experience
-
-📸 Dashboard View
-
-🏃 Exercise Recommendations
-
-Dynamic workout suggestions based on BMI category
-
-Structured exercise cards with sets & reps
-
-Category-based workout sections
-
-📸 Exercise Module
-
-📅 Daily Fitness Tracker
-
-Daily habit checklist system
-
-Automatic progress percentage calculation
-
-One log per user per day (data integrity enforced)
-
-Historical tracking of completion rates
-
-📸 Daily Tracker
-
-🛠 Tech Stack
-Backend
-
-Python 3.12
-
-Django 6
-
-Database
-
-SQLite (Development)
-
-Frontend
-
-HTML5
-
-CSS3 (Custom UI Styling)
-
-Django Template Engine
-
-Architecture
-
-Multi-app modular Django structure
-
-ORM-based relational modeling
-
-Environment variable configuration for security
-
-📂 Project Structure
-accounts/        # Authentication logic
-fitness/         # BMI & Exercise modules
-habits/          # Daily tracking system
-static/          # CSS and static assets
-templates/       # HTML templates
-screenshots/     # Project UI screenshots
-fithub_project/  # Core project settings
-
-⚙️ Local Setup
-1️⃣ Clone the repository
+### 1. Clone Repository
+```bash
 git clone https://github.com/vignesh12042003/fithub_project.git
 cd fithub_project
+```
 
-2️⃣ Create virtual environment
+### 2. Virtual Environment
+```bash
+# Windows
 python -m venv venv
-
-3️⃣ Activate environment
-
-Windows:
-
 venv\Scripts\activate
 
-4️⃣ Install dependencies
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-5️⃣ Run migrations
-python manage.py migrate
+### 4. ⚠️ MANDATORY: Configure Environment Variables
 
-6️⃣ Create admin user
-python manage.py createsuperuser
-
-7️⃣ Run server
-python manage.py runserver
-
-🔐 Environment Variables
-
-Create a .env file in the project root:
-
-SECRET_KEY=your_generated_secret_key
+Create `.env` file in project root:
+```env
+SECRET_KEY=your_generated_secret_key_here
 DEBUG=True
+```
 
+**How to generate SECRET_KEY:**
+```python
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+```
 
-For production:
+Copy the output and paste it in `.env`
 
-DEBUG=False
+### 5. ⚠️ MANDATORY: Database Setup
 
-🧠 Data Modeling
+**For Development (SQLite)** – No action needed, default in `settings.py`
 
-User → BMIRecord (One-to-Many)
+**For Production (PostgreSQL):**
 
-User → DailyHabitLog (One-to-Many)
+Update `fithub_project/settings.py`:
+```python
+import dj_database_url
 
-DailyHabitLog → FitnessHabit (Many-to-Many)
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://user:password@localhost:5432/fithub_db'
+    )
+}
+```
 
-Unique daily constraint per user
+Or set in `.env`:
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/fithub_db
+```
 
-📌 Future Improvements
+### 6. Run Migrations
+```bash
+python manage.py migrate
+```
 
-PostgreSQL production configuration
+### 7. Start Server
+```bash
+python manage.py runserver
+```
 
-Analytics dashboard with charts
+Visit: **http://127.0.0.1:8000/**
 
-Calorie tracking API integration
+---
 
-Advanced progress visualization
+## 🧠 Key Features Explained
 
-Role-based admin insights
+### BMI Calculation
+```python
+BMI = weight (kg) / height² (m²)
+```
+- **Underweight**: BMI < 18.5
+- **Normal**: 18.5 ≤ BMI < 25
+- **Overweight**: BMI ≥ 25
 
-📊 Project Classification
+### Exercise Recommendations
+- **Underweight**: Muscle building (Push-ups, Squats, Planks)
+- **Normal**: Balanced fitness (Jogging, Crunches, Stretching)
+- **Overweight**: Low-impact fat burn (Walking, Cycling, Wall Push-ups)
 
-Category: Full-Stack Web Application
-Level: Intermediate Django Application
-Focus: Authentication, ORM modeling, modular architecture, user-based data management
+### Daily Habit Tracker
+- Track 5 habits: Exercise, Water intake, Stretching, Fruits, Sleep
+- Real-time progress calculation
+- One log per user per day
+
+---
+
+## 🔗 API Routes
+
+| Route | Method | Purpose |
+|-------|--------|---------|
+| `/accounts/login/` | GET/POST | Login |
+| `/accounts/signup/` | GET/POST | Registration |
+| `/` | GET | Home page |
+| `/bmi/` | GET/POST | BMI calculator |
+| `/dashboard/` | GET | User dashboard |
+| `/exercise/` | GET | Exercise recommendations |
+| `/habits/` | GET/POST | Daily habits |
+
+---
+
+## 📊 Database Models
+
+**BMIRecord**
+- user, height, weight, bmi_value, category, created_at
+
+**FitnessHabit**
+- name, is_active
+
+**DailyHabitLog**
+- user, date, completed_habits, completion_percent
+- Constraint: One log per user per day
+
+---
+
+## 🚀 Deployment
+
+### Render.com
+1. Push to GitHub
+2. Connect repository to Render
+3. Set `SECRET_KEY` in Render environment variables
+4. Set `DATABASE_URL` if using PostgreSQL
+5. Auto-deploy on push
+
+### Heroku
+```bash
+heroku login
+heroku create fithub-app
+heroku config:set SECRET_KEY=your_secret_key
+git push heroku main
+heroku run python manage.py migrate
+```
+
+---
+
+## 🐛 Troubleshooting
+
+**ModuleNotFoundError**
+```bash
+pip install -r requirements.txt
+```
+
+**Database locked**
+```bash
+rm db.sqlite3
+python manage.py migrate
+```
+
+**Static files not loading**
+```bash
+python manage.py collectstatic --noinput
+```
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 👨‍💻 Author
+
+**Vignesh S** – [GitHub](https://github.com/vignesh12042003)
+
+**Live:** [https://fithub-98q3.onrender.com/](https://fithub-98q3.onrender.com/)
