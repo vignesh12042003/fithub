@@ -14,8 +14,10 @@
                 {% if user.is_authenticated %}
                     <a href="{% url 'dashboard' %}" class="btn-primary">Go to Dashboard</a>
                 {% else %}
+                <div class="hero-btn-wrap">
                     <a href="{% url 'login' %}" class="btn-primary">Login</a>
                     <a href="{% url 'signup' %}" class="btn-outline">Sign Up</a>
+                </div>
                 {% endif %}
             </div>
         </div>
